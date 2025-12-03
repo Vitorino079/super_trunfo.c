@@ -83,5 +83,5 @@ printf("\nObrigado por jogar SUPER TRUNFO!"); // agradecimento final
 return 0;
 }
 
-                                                                                            ////<README * FIRST *>
+                                                                                            ////<README *FIRST*>
 // CADA *PRINTF* DENTRO DO CODIGO E PARA FAZER UMA PERGUNTA AO USUARIO JOGADOR E O *SCANF* É PARA OBTER O RESULTADO QUE O JOGADOR IRÁ DIGITAR ATRAVÉS DO SEU TECLADO, ARMAZENANDO E POSTERIORMENTE APRESENTNADO O RESULTADO PELO O *PRINTF*.
