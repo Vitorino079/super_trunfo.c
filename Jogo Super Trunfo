@@ -144,6 +144,16 @@ printf("\nCarta 1: \nEstado: %c. \nCodigo da Carta: %c%s. \nNome da Cidade: %s. 
     printf("\nSuper Poder: Carta 1: > Carta 2: %d\n", SuperPoderA > SuperPoderB);
 
 
+// CALCULAR A DENSIDADE POPULACIONAL
+    printf("\n=== RESULTADOS CALCULADOS ===\n");
+Densidade = (float) Populaçao / Area;
+printf("Densidade populacional e: %.2f hab/km²\n", Densidade);
+
+// CALCULAR A PIB Per Capita
+    printf("\n=== RESULTADOS CALCULADOS ===\n");
+Capita = (float) PIB / Populaçao;
+printf("PIB per Capita e: R$ %.2f\n", Capita);
+
 printf("\nObrigado por jogar SUPER TRUNFO!"); // agradecimento final
 
 return 0;
