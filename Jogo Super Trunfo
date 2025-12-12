@@ -1,95 +1,148 @@
 //Codigo Fonte para o jogo Super Trunfo em C
 #include <stdio.h>
 int main(){
-    //variaveis utilizadas no codigo
-    char Estado; // string para importar variavel sobre a letra inicial  do Estado
-    char Codigo [50]; // string para importar variavel sobre o Codigo da Carta usando o ESTADO+CODIGO 
-    char Cidade [50]; // string para importar variavel sobre o nome da cidade
-    int Populaçao; // dimensao do tamanho da populaçao habitada
-    float Area; // tamanho da area do Estado por km2 
-    float PIB; // importaçao do valor do PIB do Estado
-    int Pontos; // quantidade de pontos turisticos existentes
-    float Densidade;
-    float Capita;
+    //variaveis utilizadas no codigo === CARTA 1
+    char EstadoA; // string para importar variavel sobre a letra inicial  do Estado
+    char CodigoA [50]; // string para importar variavel sobre o Codigo da Carta usando o ESTADO+CODIGO 
+    char CidadeA [50]; // string para importar variavel sobre o nome da cidade
+    unsigned long int PopulaçaoA; // dimensao do tamanho da populaçao habitada
+    float AreaA; // tamanho da area do Estado por km2 
+    float PIBA; // importaçao do valor do PIB do Estado
+    int PontosA; // quantidade de pontos turisticos existentes
+    float DensidadeA; // variavel para armazenar a densidade populacional
+    float CapitaA; // variavel para armazenar a o PIB per capita
+    float SuperPoderA; // variavel para armazenar o Super poder - soma de todos os numeros população, área, PIB, número de pontos turísticos, PIB per capita e o inverso da densidade populaciona
+
+     //variaveis utilizadas no codigo === CARTA 1
+    char EstadoB; // string para importar variavel sobre a letra inicial  do Estado
+    char CodigoB [50]; // string para importar variavel sobre o Codigo da Carta usando o ESTADO+CODIGO 
+    char CidadeB [50]; // string para importar variavel sobre o nome da cidade
+    unsigned long int PopulaçaoB; // dimensao do tamanho da populaçao habitada
+    float AreaB; // tamanho da area do Estado por km2 
+    float PIBB; // importaçao do valor do PIB do Estado
+    int PontosB; // quantidade de pontos turisticos existentes
+    float DensidadeB; // variavel para armazenar a densidade populacional
+    float CapitaB; // variavel para armazenar a o PIB per capita
+    float SuperPoderB; // variavel para armazenar o Super poder - soma de todos os numeros população, área, PIB, número de pontos turísticos, PIB per capita e o inverso da densidade populaciona
+    int resultado;
 //// CADASTRO PARA A PRIMEIRA CARTA DO JOGO SUPER TRUNFO
 
 printf("Olá, sejam bem vindos ao jogo Super Trunfo: Vamos começar?!\n"); // dando boas vindas ao jogador
+
+// COMEÇANDO A INTERAÇAO COM O JOGADOR. 
 printf("Cadastro da Carta 1:\n Por Favor, digite a primeira letra do seu Estado: "); // interaçao com o usuario, perguntas.
-scanf("%c", &Estado);  // obtendo resposta de cadastro do jogador.
-printf("Letra Inicial: %c\n", Estado); // mostrando resultado cadastrado pelo o jogador.
+scanf("%c", &EstadoA);  // obtendo resposta de cadastro do jogador.
+printf("Letra Inicial: %c\n", EstadoA); // mostrando resultado cadastrado pelo o jogador.
 
 printf("Agora o Codigo do seu Estado: (de 01 ao 04): "); // interaçao com o usuario, perguntas.
-scanf("%s", Codigo); // obtendo resposta de cadastro do jogador.
-printf("Codigo Cadastrado: %c%s\n ", Estado, Codigo ); // mostrando resultado cadastrado pelo o jogador.
+scanf("%s", CodigoA); // obtendo resposta de cadastro do jogador.
+printf("Codigo Cadastrado: %c%s\n ", EstadoA, CodigoA ); // mostrando resultado cadastrado pelo o jogador.
+// O PADRAO DE UTILIZAÇAO CONTINUA O MESMO ATE O FIM DO CODIGO, PRINTF > SCANF > PRINT. 
+// PERGUNTA PARA O SCANF, SCANF ARMAZENA, PRINTF VOLTA COM A EXIBIÇAO DO RESULTADO.
+printf("Digite o nome da sua Cidade: "); 
+scanf("%s", CidadeA); 
+printf("Cidade Registrada: %s\n", CidadeA); 
 
-printf("Digite o nome da sua Cidade: "); // interaçao com o usuario, perguntas.
-scanf("%s", Cidade); // obtendo resposta de cadastro do jogador.
-printf("Cidade Registrada: %s\n", Cidade); // mostrando resultado cadastrado pelo o jogador.
+printf("Qual é total da População da sua Cidade? "); 
+scanf("%lu", &PopulaçaoA);
+printf("Total Populacional Registrado: %lu\n", PopulaçaoA); 
 
-printf("Qual é total da População da sua Cidade? "); // interaçao com o usuario, perguntas.
-scanf("%d", &Populaçao); // obtendo resposta de cadastro do jogador.
-printf("Total Populacional Registrado: %d\n", Populaçao); // mostrando resultado cadastrado pelo o jogador.
+printf("Agora digite a Area total em km²: "); 
+scanf("%f", &AreaA); 
+printf("Area Total Registrada: %f\n", AreaA);
 
-printf("Agora digite a Area total em km²: "); // interaçao com o usuario, perguntas.
-scanf("%f", &Area); // obtendo resposta de cadastro do jogador.
-printf("Area Total Registrada: %f\n", Area); // mostrando resultado cadastrado pelo o jogador.
+printf("Digite o PIB da sua Cidade: "); 
+scanf("%f", &PIBA); 
+printf("PIB Regitrado: %f\n", PIBA); 
 
-printf("Digite o PIB da sua Cidade: "); // interaçao com o usuario, perguntas.
-scanf("%f", &PIB); // obtendo resposta de cadastro do jogador.
-printf("PIB Regitrado: %f\n", PIB); // mostrando resultado cadastrado pelo o jogador.
-
-printf("Agora, Digite a quantidade de pontos turisticos: "); // interaçao com o usuario, perguntas.
-scanf("%d", &Pontos); // obtendo resposta de cadastro do jogador.
-printf("Pontos Turisticos Registrados: %d\n", Pontos); // mostrando resultado cadastrado pelo o jogador.
-
-printf("\nCadastrado da Carta Finalizado!\n Resultado do Cadastro:\n"); // texto afirmando que finalizou o cadastro e mostrara o resultado final.
-printf("\nCarta 1: \nEstado: %c. \nCodigo da Carta: %c%s. \nNome da Cidade: %s. \nPopulação: %dkm². \nArea em km²: %f. \nPIB: %f. \nNumeros de Pontos Turisticos: %d.\n", Estado, Estado,Codigo, Cidade, Populaçao, Area, PIB, Pontos); //apresentaçao dos dados de entrada e saida do jogador!
+printf("Agora, Digite a quantidade de pontos turisticos: ");
+scanf("%d", &PontosA); 
+printf("Pontos Turisticos Registrados: %d\n", PontosA); 
 
 // CALCULAR A DENSIDADE POPULACIONAL
     printf("\n=== RESULTADOS CALCULADOS ===\n");
-Densidade = (float) Populaçao / Area;
-printf("Densidade populacional e: %.2f hab/km²\n", Densidade);
+DensidadeA = (float) PopulaçaoA / AreaA;
+printf("Densidade populacional e: %.2f hab/km²\n", DensidadeA);
 
-// CALCULAR A PIB Per Capita
+// CALCULAR o PIB Per Capita
     printf("\n=== RESULTADOS CALCULADOS ===\n");
-Capita = (float) PIB / Populaçao;
-printf("PIB per Capita e: R$ %.2f\n", Capita);
+CapitaA = (float) PIBA / PopulaçaoA;
+printf("PIB per Capita e: R$ %.2f\n", CapitaA);
+
+//IMPLEMENTAÇAO DO SUPER PODER
+    printf("\n=== RESULTADOS SUPERPODER ===\n");
+SuperPoderA = (float) (PopulaçaoA + AreaA + PIBA + PontosA + CapitaA + 1.0 / DensidadeA);
+printf("Super Poder: %.2f\n", SuperPoderA);
+
+// INTERAÇAO FINAL COM O JOGADOR DA CARTA 1
+printf("\nCadastrado da Carta Finalizado!\n Resultado do Cadastro:\n"); // texto afirmando que finalizou o cadastro e mostrara o resultado final.
+printf("\nCarta 1: \nEstado: %c. \nCodigo da Carta: %c%s. \nNome da Cidade: %s. \nPopulação: %lu. \nArea em km²: %f. \nPIB: %f. \nNumeros de Pontos Turisticos: %d. \nSuper Poder: %.2f\n",EstadoA, EstadoA, CodigoA, CidadeA, PopulaçaoA, AreaA, PIBA, PontosA, SuperPoderA); //apresentaçao dos dados de entrada e saida do jogador!
 
 
 //// CADASTRO PARA A SEGUNDA CARTA DO JOGO SUPER TRUNFO
 
 printf("\nVamos cadastrar a SEGUNDA CARTA no Jogo Super Trunfo: Vamos começar?!\n"); // interação com o jogador, relatando que irá cadastrar a segunda carta.
-scanf("%c", &Estado);
+scanf("%c", &EstadoB);
 printf("Cadastro da Carta 2:\n Por Favor, digite a primeira letra do seu Estado: "); // interaçao com o usuario, perguntas.
-scanf("%c", &Estado);  // obtendo resposta de cadastro do jogador.
-printf("Letra Inicial: %c\n", Estado); // mostrando resultado cadastrado pelo o jogador.
+scanf("%c", &EstadoB);  // obtendo resposta de cadastro do jogador.
+printf("Letra Inicial: %c\n", EstadoB); // mostrando resultado cadastrado pelo o jogador.
 
 printf("Agora o Codigo do seu Estado: (de 01 ao 04): "); // interaçao com o usuario, perguntas.
-scanf("%s", Codigo); // obtendo resposta de cadastro do jogador.
-printf("Codigo Cadastrado: %c%s\n ", Estado, Codigo ); // mostrando resultado cadastrado pelo o jogador.
+scanf("%s", CodigoB); // obtendo resposta de cadastro do jogador.
+printf("Codigo Cadastrado: %c%s\n ", EstadoB, CodigoB ); // mostrando resultado cadastrado pelo o jogador.
+// O PADRAO DE UTILIZAÇAO CONTINUA O MESMO ATE O FIM DO CODIGO, PRINTF > SCANF > PRINT. 
+// PERGUNTA PARA O SCANF, SCANF ARMAZENA, PRINTF VOLTA COM A EXIBIÇAO DO RESULTADO.
+printf("Digite o nome da sua Cidade: "); 
+scanf("%s", CidadeB); 
+printf("Cidade Registrada: %s\n", CidadeB); 
 
-printf("Digite o nome da sua Cidade: "); // interaçao com o usuario, perguntas.
-scanf("%s", Cidade); // obtendo resposta de cadastro do jogador.
-printf("Cidade Registrada: %s\n", Cidade); // mostrando resultado cadastrado pelo o jogador.
+printf("Qual é total da População da sua Cidade? "); 
+scanf("%lu", &PopulaçaoB);
+printf("Total Populacional Registrado: %lu\n", PopulaçaoB); 
 
-printf("Qual é o total da População da sua Cidade? "); // interaçao com o usuario, perguntas.
-scanf("%d", &Populaçao); // obtendo resposta de cadastro do jogador.
-printf("Total Populacional Registrado: %d\n", Populaçao); // mostrando resultado cadastrado pelo o jogador.
+printf("Agora digite a Area total em km²: "); 
+scanf("%f", &AreaB); 
+printf("Area Total Registrada: %f\n", AreaB);
 
-printf("Agora digite a Area total em km²: "); // interaçao com o usuario, perguntas.
-scanf("%f", &Area); // obtendo resposta de cadastro do jogador.
-printf("Area Total Registrada: %f\n", Area); // mostrando resultado cadastrado pelo o jogador.
+printf("Digite o PIB da sua Cidade: "); 
+scanf("%f", &PIBB); 
+printf("PIB Regitrado: %f\n", PIBB); 
 
-printf("Digite o PIB da sua Cidade: "); // interaçao com o usuario, perguntas.
-scanf("%f", &PIB); // obtendo resposta de cadastro do jogador.
-printf("PIB Regitrado: %f\n", PIB); // mostrando resultado cadastrado pelo o jogador.
+printf("Agora, Digite a quantidade de pontos turisticos: ");
+scanf("%d", &PontosB); 
+printf("Pontos Turisticos Registrados: %d\n", PontosB); 
 
-printf("Agora, Digite a quantidade de pontos turisticos: "); // interaçao com o usuario, perguntas.
-scanf("%d", &Pontos); // obtendo resposta de cadastro do jogador.
-printf("Pontos Turisticos Registrados: %d\n", Pontos); // mostrando resultado cadastrado pelo o jogador.
+// CALCULAR A DENSIDADE POPULACIONAL
+    printf("\n=== RESULTADOS CALCULADOS ===\n");
+DensidadeB = (float) PopulaçaoB / AreaB;
+printf("Densidade populacional e: %.2f hab/km²\n", DensidadeB);
 
+// CALCULAR o PIB Per Capita
+    printf("\n=== RESULTADOS CALCULADOS ===\n");
+CapitaB = (float) PIBB / PopulaçaoB;
+printf("PIB per Capita e: R$ %.2f\n", CapitaB);
+
+//IMPLEMENTAÇAO DO SUPER PODER
+    printf("\n=== RESULTADOS SUPERPODER ===\n");
+SuperPoderB = (float) (PopulaçaoB + AreaB + PIBB + PontosB + CapitaB + 1.0 / DensidadeB);
+printf("Super Poder: %.2f\n", SuperPoderB);
+
+
+//INTERAÇAO DE FINALIZAÇAO DO CADASTRO
 printf("\nCadastrado da Carta Finalizado!\n Resultado do Cadastro:\n"); // texto afirmando que finalizou o cadastro e mostrara o resultado final.
-printf("\nCarta 2: \nEstado: %c. \nCodigo da Carta: %c%s. \nNome da Cidade: %s. \nPopulação: %d. \nArea em km²: %f. \nPIB: %f. \nNumeros de Pontos Turisticos: %d.\n", Estado, Estado,Codigo, Cidade, Populaçao, Area, PIB, Pontos); //apresentaçao dos dados de entrada e saida do jogador!
+printf("\nCarta 1: \nEstado: %c. \nCodigo da Carta: %c%s. \nNome da Cidade: %s. \nPopulação: %lu. \nArea em km²: %f. \nPIB: %f. \nNumeros de Pontos Turisticos: %d. \nSuper Poder: %.2f\n",EstadoB, EstadoB, CodigoB, CidadeB, PopulaçaoB, AreaB, PIBB, PontosB, SuperPoderB); //apresentaçao dos dados de entrada e saida do jogador!
+
+// APLICANDO COMPARAÇAO DE CARTAS 1 E 2 PARA EXIBIR VENCEDOR
+    printf("\n ==== COMPARAÇAO DE CARTAS ====\n");
+
+    printf("Populaçao: Carta 1: > Carta 2: %lu", PopulaçaoA > PopulaçaoB);
+    printf("\nArea: Carta 1: > Carta 2: %d", AreaA > AreaB);
+    printf("\nPIB: Carta 1: > Carta 2: %d", PIBA > PIBB);
+    printf("\nPontos Turisticos: Carta 1: > Carta 2: %d", PontosA > PontosB);
+    printf("\nDensidade Populaciona: Carta 1: > Carta 2: %d", DensidadeA > DensidadeB);
+    printf("\nPIB per Capita: Carta 1: > Carta 2: %d", CapitaA > CapitaB);
+    printf("\nSuper Poder: Carta 1: > Carta 2: %d\n", SuperPoderA > SuperPoderB);
+
 
 // CALCULAR A DENSIDADE POPULACIONAL
     printf("\n=== RESULTADOS CALCULADOS ===\n");
@@ -102,6 +155,7 @@ Capita = (float) PIB / Populaçao;
 printf("PIB per Capita e: R$ %.2f\n", Capita);
 
 printf("\nObrigado por jogar SUPER TRUNFO!"); // agradecimento final
+
 return 0;
 }
 
